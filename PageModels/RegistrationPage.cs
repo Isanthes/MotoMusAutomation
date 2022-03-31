@@ -44,8 +44,6 @@ namespace MotoMusAutomation.PageModels
 
         public Boolean CheckRegistrationLabel(string label)
         {
-            var loginElement = driver.FindElement(By.CssSelector(authButtonSelector));
-            loginElement.Click();
             var registrationSubmitButton = driver.FindElement(By.Id(registrationButton));
             registrationSubmitButton.Submit();
             return String.Equals(label.ToLower(), driver.FindElement(By.CssSelector(registrationPageTitle)).Text.ToLower());

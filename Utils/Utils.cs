@@ -263,6 +263,18 @@ namespace MotoMusAutomation
             return dictionaryList;
 
         }
+
+        public static string GenerateRendomStringCount(int count)
+        {
+            const string chars = "1234567890";
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i<count; i++)
+            {
+                Random r = new Random();
+                sb.Append(chars[r.Next(chars.Length)]);
+            }
+            return sb.ToString();
+        }
     }
  }
 

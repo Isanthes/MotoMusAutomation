@@ -23,7 +23,7 @@ namespace MotoMusAutomation.Tests.Authentication
         [Test, TestCaseSource("GetValidRegistrationDataCsv")]
         public void ValidRegistration(string email, string nume, string prenume, string parola, string confirmParola)
         {
-            _driver.Navigate().GoToUrl(url);
+            _driver.Navigate().GoToUrl(url + "/inregistrare");
             testName = TestContext.CurrentContext.Test.Name;
             _test = _extent.CreateTest(testName);
             RegistrationPage happyFlow = new RegistrationPage(_driver);
@@ -35,7 +35,7 @@ namespace MotoMusAutomation.Tests.Authentication
             Assert.AreEqual("Prenume*", happyFlow.getLabel(happyFlow.getPrenumeLabel()));
             Assert.AreEqual("Parola*", happyFlow.getLabel(happyFlow.getParolaLabel()));
             Assert.AreEqual("Confirma parola*", happyFlow.getLabel(happyFlow.getConfirmParolaLabel()));
-            happyFlow.ValidRegistration(email, nume, prenume, parola, confirmParola);
+            happyFlow.ValidRegistration(email,nume,prenume,parola,confirmParola);
         }
 
         [Test]
